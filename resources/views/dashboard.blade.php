@@ -11,7 +11,9 @@
                 <div class="p-6 text-gray-900">
                     {{ __("You're logged in!") }}
                   <br>
-                   <a href="{{route('user.index')}}" class="text">Requests</a>
+                   <a href="{{route('user.index')}}" class="text">List of Users</a>
+                  <br>
+                  <a href="{{route('user.create')}}" class="text">Create Users</a>
                 </div>
             </div>
         </div>
