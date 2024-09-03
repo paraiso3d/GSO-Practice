@@ -13,7 +13,7 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/user', [UserlistController::class, 'index'])->name ('user.index'); 
+    Route::get('/user', [UserlistController::class, 'index'])->name ('users.index'); 
     Route::get('/user/create', [UserlistController::class, 'create'])->name ('user.create'); 
     Route::post('/users', [UserlistController::class, 'store'])->name ('user.store'); 
     Route::get('/user/{user}/edit', [UserlistController::class, 'edit'])->name ('user.edit'); 
