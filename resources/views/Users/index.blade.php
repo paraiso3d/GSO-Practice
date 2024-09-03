@@ -35,11 +35,22 @@
                         <td>{{$userlists->UserType}}</td>
                         <td>
                         <a href="{{route('user.edit', ['user' => $userlists])}}">Edit</a>
-                            <form method='post' action="{{route('user.delete', ['user' => $userlists])}}">
-                                @csrf
-                                @method('delete')
-                                <input type="submit" value="Delete"/>
-                            </form>
+                        
+                        <button type="button" class="btn btn-danger" onclick="confirmDelete(event)">Delete</button>
+
+                        <form id="delete-form" action="{{ route('user.delete', $userlists->id) }}" method="POST" style="display:none;">
+                            @csrf
+                            @method('DELETE')
+                        </form>
+                        
+                        <script>
+                            function confirmDelete(event) {
+                                event.preventDefault();
+                                if (confirm('Are you sure you want to delete this user? This action cannot be undone.')) {
+                                    document.getElementById('delete-form').submit();
+                                }
+                            }   
+                        </script>
                         </td>
                         
                     </tr>
