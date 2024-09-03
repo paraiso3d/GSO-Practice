@@ -10,6 +10,7 @@
     <form action="{{ route('user.create') }}" method="GET">
         <button type="submit" class="btn btn-primary">Create New Users</button>
     </form>
+    <br>
     <form action="{{ route('dashboard') }}" method="GET">
         <button type="submit" class="btn btn-primary">Dashboard</button>
     </form>
