@@ -36,6 +36,7 @@ class UserlistController extends Controller
 
     }
 
+    //Function update
     public function update(user_list $user,Request $request){
         $data = $request->validate([
             'FirstName'=> 'required',
@@ -43,7 +44,7 @@ class UserlistController extends Controller
             'LastName'=> 'required|string',
             'Designation'=> 'required|string',
             'Email'=> 'required|email',
-            'UserType' => 'required|in:dean,head',
+            'UserType' => 'required|in:Dean,Head',
           ]);
 
           $user->update($data);
@@ -53,11 +54,24 @@ class UserlistController extends Controller
 
     }
 
-    public function delete(user_list $user){
+    //Function for dekete 
+    public function delete(user_list $user)
+    {
         $user->delete();
+        $this->reorderUsers();
 
-        return redirect(route('users.index'))->with('success', "User  Successfully Deleted");
-
+         return redirect(route('users.index'))->with('success', "User Successfully Deleted");
     }
 
+        protected function reorderUsers()
+    {
+        $users = user_list::orderBy('id')->get();
+        $order = 1;
+
+         foreach ($users as $user) 
+        {
+            $user->order_number = $order++; 
+             $user->save();
+        }   
+    }
 }

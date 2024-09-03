@@ -6,7 +6,13 @@
     <title>GSO</title>
 </head>
 <body>
-    <h1>User</h1>
+    <h1>List of User</h1>
+    <form action="{{ route('user.create') }}" method="GET">
+        <button type="submit" class="btn btn-primary">Create New Users</button>
+    </form>
+    <form action="{{ route('dashboard') }}" method="GET">
+        <button type="submit" class="btn btn-primary">Dashboard</button>
+    </form>
     <div>
         @if(session()->has('success'))
             <div>
@@ -17,7 +23,8 @@
    
    
     <div>
-        <table border= "1">
+        <br>
+        <table border= "2">
             <tr>
                 <th>ID</th>
                 <th>Name</th>

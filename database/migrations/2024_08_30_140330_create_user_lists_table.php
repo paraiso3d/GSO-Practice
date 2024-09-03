@@ -18,7 +18,7 @@ return new class extends Migration
                 $table->string('LastName');
                 $table->string('Designation');
                 $table->string('Email');
-                $table->enum('UserType', ['dean', 'head']);
+                $table->enum('UserType', ['Dean', 'Head']);
                 $table->timestamps();
         });
     }

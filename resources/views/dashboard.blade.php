@@ -13,7 +13,6 @@
                   <br>
                    <a href="{{route('users.index')}}" class="text">List of Users</a>
                   <br>
-                  <a href="{{route('user.create')}}" class="text">Create Users</a>
                 </div>
             </div>
         </div>

@@ -49,15 +49,27 @@
 
         <div>
             <label for="UserType">User Type:</label>
-            <select id="UserType" name="UserType">
-            <option value="dean">Dean</option>
-            <option value="head">Head</option>
+            <select id="UserType" name="UserType" onclick="hideNullOption()">
+                <option value="null">-select-</option>
+                <option value="dean">Dean</option>
+                <option value="head">Head</option>
             </select>
         </div>
+        <script>
+            function hideNullOption() {
+                const userTypeSelect = document.getElementById("UserType");
+                const nullOption = userTypeSelect.querySelector('option[value="null"]');
+                
+                if (nullOption) {
+                    nullOption.remove();
+                }
+            }
+        </script>
 
         <div>
             <input type="submit" value="Create">
         </div>
+        
 
 
     </form>
